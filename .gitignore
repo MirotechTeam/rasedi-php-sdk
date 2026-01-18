@@ -1,3 +1,9 @@
 db/
 README.Docker.md
 vendor/
+.env
+.env.example
+private.pem
+composer.lock
+.idea/
+.vscode/

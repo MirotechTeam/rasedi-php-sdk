@@ -41,8 +41,7 @@ if ($gateways === []) {
 
 $client = new PaymentClient(
     privateKey: $privateKey,
-    secretKey: $secretKey,
-    baseUrl: $baseUrl
+    secretKey: $secretKey
 );
 
 $payload = new ICreatePayment(

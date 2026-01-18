@@ -32,12 +32,11 @@ final class PaymentClient
     public function __construct(
         string $privateKey,
         string $secretKey,
-        ?string $baseUrl = null,
         ?ClientInterface $httpClient = null
     ) {
         $this->authenticator = new Auth($privateKey, $secretKey);
         $this->isTest = str_contains($secretKey, 'test');
-        $this->baseUrl = $baseUrl ? $this->trimBaseUrl($baseUrl) : Constant::API_BASE_URL;
+        $this->baseUrl = Constant::API_BASE_URL;
         $this->httpClient = $httpClient ?? new Client(['timeout' => 10.0]);
     }
 
@@ -117,23 +116,7 @@ final class PaymentClient
         return $result;
     }
 
-    private function trimBaseUrl(string $hostName): string
-    {
-        $hostName = trim($hostName);
-        if ($hostName === '') {
-            return Constant::API_BASE_URL;
-        }
 
-        if (!str_starts_with($hostName, 'https://')) {
-            if (str_starts_with($hostName, 'http://')) {
-                $hostName = 'https://' . substr($hostName, 7);
-            } else {
-                $hostName = 'https://' . $hostName;
-            }
-        }
-
-        return rtrim($hostName, '/');
-    }
 
     public function getPublicKeys(): HttpResponse
     {

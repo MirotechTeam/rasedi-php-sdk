@@ -29,7 +29,6 @@ It is recommended to load credentials from environment variables or a `.env` fil
 # .env
 PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\nMC4CAQAwBQYDK2Vw...if4+rx\n-----END PRIVATE KEY-----"
 SECRET_KEY="live_..."
-BASE_URL="https://api.pallawan.com"
 ```
 
 ## Usage
@@ -44,8 +43,7 @@ $secretKey = 'your_secret_key';
 
 $client = new PaymentClient(
     privateKey: $privateKey,
-    secretKey: $secretKey,
-    baseUrl: 'https://api.pallawan.com' // Optional, defaults to Rasedi API
+    secretKey: $secretKey
 );
 ```
 

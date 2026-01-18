@@ -31,7 +31,7 @@ $env = loadEnv(__DIR__ . '/../.env');
 
 $privateKey = $env['PRIVATE_KEY'] ?? getenv('PRIVATE_KEY');
 $secretKey = $env['SECRET_KEY'] ?? getenv('SECRET_KEY');
-$baseUrl = $env['BASE_URL'] ?? 'https://api.rasedi.com';
+$secretKey = $env['SECRET_KEY'] ?? getenv('SECRET_KEY');
 
 // Handle inline vs file private key
 if (!str_contains($privateKey, 'BEGIN PRIVATE KEY')) {
@@ -52,8 +52,7 @@ $referenceCode = $argv[1];
 // 3. Init client
 $client = new PaymentClient(
     privateKey: $privateKey,
-    secretKey: $secretKey,
-    baseUrl: $baseUrl
+    secretKey: $secretKey
 );
 
 // 4. Execute

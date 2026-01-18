@@ -133,6 +133,10 @@ try {
 ### Gateway
 - `Gateway::FIB` - First Iraqi Bank
 - `Gateway::ZAIN` - ZainCash
+- `Gateway::ASIA_PAY` - Asia Pay
+- `Gateway::FAST_PAY` - Fast Pay
+- `Gateway::NASS_WALLET` - Nass Wallet
+- `Gateway::CREDIT_CARD` - Credit Card
 
 ### PaymentStatus
 - `PENDING`

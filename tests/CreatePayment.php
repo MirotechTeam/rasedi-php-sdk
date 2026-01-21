@@ -24,7 +24,7 @@ if (($privateKey === null || $privateKey === false || $privateKey === '') && is_
 if ($privateKey === false || $secretKey === false || $privateKey === null || $secretKey === null) {
     fwrite(STDERR, "PRIVATE_KEY and SECRET_KEY must be set via .env or environment variables.\n");
     exit(1);
-}
+} 
 
 $baseUrl = $env['BASE_URL'] ?? 'https://api.rasedi.com';
 $amount = $env['PAYMENT_AMOUNT'] ?? '10000';

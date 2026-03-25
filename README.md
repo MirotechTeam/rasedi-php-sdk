@@ -25,10 +25,16 @@ You need your **Private Key** (PEM format) and **Secret Key** provided by the Ra
 
 It is recommended to load credentials from environment variables or a `.env` file.
 
+> [!IMPORTANT]
+> When using a `.env` file, the `PRIVATE_KEY` must be provided as a **single line**.
+> Replace all actual newlines in the PEM file with the literal characters `\n`.
+> Do **not** use actual line breaks (Enter) within the double quotes.
+
 ```dotenv
 # .env
 PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\nMC4CAQAwBQYDK2Vw...if4+rx\n-----END PRIVATE KEY-----"
-SECRET_KEY="live_..."
+SECRET_KEY="test_..."
+BASE_URL="https://api.pallawan.com"
 ```
 
 ## Usage

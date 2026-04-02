@@ -163,6 +163,7 @@ final class IPublicKeysResponse
     }
 }
 
+/** @deprecated Use status checking or webhooks instead. */
 final class IVerifyPayload
 {
     public function __construct(
@@ -172,6 +173,7 @@ final class IVerifyPayload
     }
 }
 
+/** @deprecated Use status checking instead. */
 final class IVerifyPaymentResponseBody
 {
     public function __construct(
@@ -192,6 +194,7 @@ final class IVerifyPaymentResponseBody
     }
 }
 
+/** @deprecated Use status checking instead. */
 final class IVerifyPaymentResponse
 {
     public function __construct(

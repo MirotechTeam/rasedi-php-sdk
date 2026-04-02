@@ -176,6 +176,7 @@ final class PaymentClient
      * Verify a webhook-style payload using the cached public keys.
      *
      * @param array<string, mixed>|IVerifyPayload $payload
+     * @deprecated Use status checking or webhooks instead.
      */
     public function verify(array|IVerifyPayload $payload): HttpResponse
     {

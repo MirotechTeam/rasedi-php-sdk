@@ -104,7 +104,7 @@ $cancelResponse = $client->cancelPayment($referenceCode);
 echo "New Status: " . $cancelResponse->body->status->value . "\n"; // CANCELLED
 ```
 
-### 5. Verify Webhook Signature
+### 5. Verify Webhook Signature (Depricated)
 
 The SDK can verify the `X-Signature` or payload signature sent by Rasedi webhooks to ensure authenticity.
 

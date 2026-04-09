@@ -34,7 +34,7 @@ It is recommended to load credentials from environment variables or a `.env` fil
 # .env
 PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\nMC4CAQAwBQYDK2Vw...if4+rx\n-----END PRIVATE KEY-----"
 SECRET_KEY="test_..."
-BASE_URL="https://api.pallawan.com"
+BASE_URL="https://api.rasedi.com"
 ```
 
 ## Usage

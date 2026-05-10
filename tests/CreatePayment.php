@@ -27,7 +27,7 @@ if ($privateKey === false || $secretKey === false || $privateKey === null || $se
 } 
 
 $baseUrl = $env['BASE_URL'] ?? 'https://api.rasedi.com';
-$amount = $env['PAYMENT_AMOUNT'] ?? '10000';
+$amount = $env['PAYMENT_AMOUNT'] ?? '250';
 $redirectUrl = $env['PAYMENT_REDIRECT_URL'] ?? 'https://example.com/return';
 $callbackUrl = $env['PAYMENT_CALLBACK_URL'] ?? 'https://example.com/webhook';
 $title = $env['PAYMENT_TITLE'] ?? 'Local SDK Payment';

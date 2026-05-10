@@ -4,6 +4,38 @@ namespace Rasedi\Sdk\Interfaces;
 
 use Rasedi\Sdk\Enum\PaymentStatus;
 
+final class IPaymentHistoryItem
+{
+    public function __construct(
+        public string $referenceCode,
+        public PaymentStatus $status,
+        public string $amount,
+        public ?string $gateway,
+        public ?string $paidAt,
+        public ?string $payoutAmount,
+        public ?string $serviceFeeAmount,
+        public ?string $gatewayFeeAmount,
+        public ?string $expiresAt
+    ) {
+    }
+
+    /** @param array<string, mixed> $data */
+    public static function fromArray(array $data): self
+    {
+        return new self(
+            $data['referenceCode'],
+            PaymentStatus::from($data['status']),
+            $data['amount'],
+            $data['gateway'] ?? null,
+            $data['paidAt'] ?? null,
+            $data['payoutAmount'] ?? null,
+            $data['serviceFeeAmount'] ?? null,
+            $data['gatewayFeeAmount'] ?? null,
+            $data['expiresAt'] ?? null
+        );
+    }
+}
+
 final class ICreatePaymentResponseBody
 {
     public function __construct(
@@ -44,6 +76,7 @@ final class ICreatePaymentResponse
 
 final class IPaymentDetailsResponseBody
 {
+    /** @param IPaymentHistoryItem[] $history */
     public function __construct(
         public string $referenceCode,
         public string $amount,
@@ -51,13 +84,21 @@ final class IPaymentDetailsResponseBody
         public ?string $paidAt,
         public string $redirectUrl,
         public PaymentStatus $status,
-        public ?string $payoutAmount
+        public ?string $payoutAmount,
+        public array $history = []
     ) {
     }
 
     /** @param array<string, mixed> $data */
     public static function fromArray(array $data): self
     {
+        $history = [];
+        if (isset($data['history']) && is_array($data['history'])) {
+            foreach ($data['history'] as $item) {
+                $history[] = IPaymentHistoryItem::fromArray($item);
+            }
+        }
+
         return new self(
             $data['referenceCode'],
             $data['amount'],
@@ -65,7 +106,8 @@ final class IPaymentDetailsResponseBody
             $data['paidAt'] ?? null,
             $data['redirectUrl'],
             PaymentStatus::from($data['status']),
-            $data['payoutAmount'] ?? null
+            $data['payoutAmount'] ?? null,
+            $history
         );
     }
 }
